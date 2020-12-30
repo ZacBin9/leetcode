@@ -4,20 +4,20 @@
  */
 
 // sliding window
-// 方法一 维持一个队列字符串arr 时间快
+// 方法一 维持一个队列字符串str 时间快
 // var lengthOfLongestSubstring = function (s) {
 //   let len = 0
-//   let arr = ''
+//   let str = ''
 //   s &&
 //     s.split('').forEach((ele) => {
-//       const i = arr.indexOf(ele)
+//       const i = str.indexOf(ele)
 //       if (i > -1) {
-//         len = arr.length > len ? arr.length : len
-//         arr = arr.slice(i + 1)
+//         len = str.length > len ? str.length : len
+//         str = str.slice(i + 1)
 //       }
-//       arr += ele
+//       str += ele
 //     })
-//   return arr.length > len ? arr.length : len
+//   return str.length > len ? str.length : len
 // }
 
 // 双指针 原理类似 两个指针分别保存方法一arr的左右边界 内存消耗小

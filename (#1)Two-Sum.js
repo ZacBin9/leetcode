@@ -3,7 +3,7 @@ const util = require('util')
  * @param {number[]} nums
  * @param {number} target
  * @return {number[]}
- * 方法一
+ * 方法一 暴力双循环
  */
 // var twoSum = function (nums, target) {
 //   let indexA = 0
@@ -25,6 +25,8 @@ const util = require('util')
  * @param {*} target
  * 方法二
  */
+
+// 构建另一个值-索引的map
 var twoSum = function (nums, target) {
   const numMap = new Map()
   nums.forEach((num, i) => {
