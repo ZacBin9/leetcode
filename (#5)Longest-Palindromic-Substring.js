@@ -5,39 +5,29 @@
 
 // 中心扩展 还可优化 todo
 // 优化一： 循环结束的判定 i < len - ((finalRight + 1 - finalLeft) >> 2) 减少无意义的循环
-// const longestPalindrome = function (s) {
-//   let finalLeft = 0
-//   let finalRight = 0
-//   const palindromic = (left, right) => {
-//     while ((left >= 0 || right < s.length) && s[left] === s[right]) {
-//       left--
-//       right++
-//     }
-//     return right - left - 1
-//   }
-//   for (
-//     let i = 0, len = s.length;
-//     i < len - ((finalRight + 1 - finalLeft) >> 2);
-//     i++
-//   ) {
-//     let newStr = s.slice(0, i + 1)
-//     const maxEven = palindromic(i, i)
-//     const maxOdd = palindromic(i, i + 1)
-//     const max = maxEven > maxOdd ? maxEven : maxOdd
-//     // console.log(max)
-//     // console.log('-----')
-//     // console.log(i)
-//     // console.log('-----')
-//     if (max > finalRight - finalLeft) {
-//       finalLeft = i - Math.floor((max - 1) / 2)
-//       finalRight = i + Math.floor(max / 2)
-//     }
-//   }
-//   // console.log(finalLeft)
-//   // console.log(finalRight)
+const longestPalindrome = function (s) {
+  let finalLeft = 0
+  let finalRight = 0
+  let len = s.length
+  const palindromic = (left, right) => {
+    while ((left >= 0 || right < len) && s[left] === s[right]) {
+      left--
+      right++
+    }
+    return right - left - 1
+  }
+  for (let i = 0; i < len - Math.ceil((finalRight + 1 - finalLeft) / 2); i++) {
+    const maxEven = palindromic(i, i)
+    const maxOdd = palindromic(i, i + 1)
+    const max = maxEven > maxOdd ? maxEven : maxOdd
+    if (max > finalRight - finalLeft) {
+      finalLeft = i - Math.floor((max - 1) / 2)
+      finalRight = i + Math.floor(max / 2)
+    }
+  }
 
-//   return s.slice(finalLeft, finalRight + 1)
-// }
+  return s.slice(finalLeft, finalRight + 1)
+}
 
 // 方法二 dp
 

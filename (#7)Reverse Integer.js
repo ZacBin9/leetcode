@@ -26,4 +26,4 @@ var reverse = function (x) {
 console.log((959435438976).toString(2))
 console.log('         ' + (1657731968).toString(2))
 
-reverse(-123)
+console.log(reverse(-959435438976))

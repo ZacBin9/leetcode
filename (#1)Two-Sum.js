@@ -37,7 +37,6 @@ var twoSum = function (nums, target) {
     const theRestIndex = numMap.get(theRest)
     if (numMap.has(theRest) && theRestIndex !== i) {
       return [i, theRestIndex]
-      break
     }
   }
 }

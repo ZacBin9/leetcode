@@ -15,12 +15,12 @@ var isPalindrome = function (x) {
   } else if (x < 10) {
     return true
   }
-  let n = 10 ** ~~Math.log10(x)
+  let n = 10 ** Math.floor(Math.log10(x))
   while (n > 1) {
-    if (~~(x / n) !== x % 10) {
+    if (Math.floor(x / n) !== x % 10) {
       return false
     }
-    x = ~~((x % n) / 10)
+    x = Math.floor((x % n) / 10)
     n /= 100
   }
   return true
